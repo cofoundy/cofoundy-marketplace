@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation",
-      "version": "0.9.26",
+      "version": "0.9.27",
       "author": {
         "name": "Cofoundy SAC"
       },
