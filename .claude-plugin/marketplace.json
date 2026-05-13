@@ -1,0 +1,91 @@
+{
+  "name": "cofoundy",
+  "owner": {
+    "name": "Cofoundy SAC",
+    "email": "info@cofoundy.dev"
+  },
+  "metadata": {
+    "description": "Cofoundy internal plugins",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "cofoundy-toolkit",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-toolkit"
+      },
+      "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
+      "version": "1.22.15",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-business",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-business"
+      },
+      "description": "Business tools: Hormozi library, website diagnosis, AI visibility audits, content creation",
+      "version": "0.4.6",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-founders",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-founders"
+      },
+      "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation",
+      "version": "0.9.23",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-meta",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-meta"
+      },
+      "description": "Metacognition layer: automatic prompt capture, pattern extraction, and system design methodology",
+      "version": "0.3.13",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-pms",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-pms"
+      },
+      "description": "PM operations layer — sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
+      "version": "0.1.1",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-orchestrator",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-orchestrator"
+      },
+      "description": "AI-native project management substrate: `.cofoundy/` state, frontier resolver, bundle builder, scope enforcer, QA-driven iteration. Composes with cofoundy-toolkit:sprint.",
+      "version": "0.0.7",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    }
+  ]
+}
