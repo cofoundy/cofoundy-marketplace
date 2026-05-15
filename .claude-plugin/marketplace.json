@@ -94,7 +94,7 @@
         "repo": "cofoundy/cofoundy-orchestrator"
       },
       "description": "AI-native project management substrate: `.cofoundy/` state, frontier resolver, bundle builder, scope enforcer, QA-driven iteration. Composes with cofoundy-toolkit:sprint.",
-      "version": "0.0.7",
+      "version": "0.0.8",
       "author": {
         "name": "Cofoundy SAC"
       },
