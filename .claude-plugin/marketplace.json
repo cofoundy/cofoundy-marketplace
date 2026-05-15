@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
-      "version": "1.22.39",
+      "version": "1.22.40",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -93,8 +93,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-orchestrator"
       },
-      "description": "AI-native project management substrate: `.cofoundy/` state, frontier resolver, bundle builder, scope enforcer, QA-driven iteration. Composes with cofoundy-toolkit:sprint.",
-      "version": "0.0.8",
+      "description": "AI-native project management substrate. Single entry point `/cto` drives the 12-phase loop (recon→substrate→arch→matrix→team→tasks→wave→wake→integrate→verify→document→deploy→retro) with 3 hard human gates. Composes 26 sub-skills (M1+M2+M3+M4+M5) on top of cofoundy-toolkit:sprint + Superpowers.",
+      "version": "0.0.10",
       "author": {
         "name": "Cofoundy SAC"
       },
