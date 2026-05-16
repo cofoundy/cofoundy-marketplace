@@ -93,8 +93,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-orchestrator"
       },
-      "description": "AI-native project management substrate. Single entry point `/cto` drives the 12-phase loop (recon→substrate→arch→matrix→team→tasks→wave→wake→integrate→verify→document→deploy→retro) with 3 hard human gates. Composes 26 sub-skills (M1+M2+M3+M4+M5) on top of cofoundy-toolkit:sprint + Superpowers.",
-      "version": "0.0.10",
+      "description": "AI-native project management substrate. Single entry point `/cto` drives a 12-phase loop with 3 hard human gates, composing 19 user-facing skills + 7 internal reference mechanisms. Heavy work (browser QA, security audit, perf, multi-persona plan review) delegates to subagents. Built on cofoundy-toolkit:sprint + Superpowers.",
+      "version": "0.0.11",
       "author": {
         "name": "Cofoundy SAC"
       },
