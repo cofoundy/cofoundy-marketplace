@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
-      "version": "1.22.42",
+      "version": "1.22.44",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -41,7 +41,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-docs"
       },
-      "description": "DocsAI publishing — vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Successor to cofoundy-toolkit:publish.",
+      "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Successor to cofoundy-toolkit:publish.",
       "version": "0.1.0",
       "author": {
         "name": "Cofoundy SAC"
@@ -80,7 +80,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-pms"
       },
-      "description": "PM operations layer — sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
+      "description": "PM operations layer \u2014 sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
       "version": "0.1.1",
       "author": {
         "name": "Cofoundy SAC"
