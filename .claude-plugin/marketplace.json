@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
-      "version": "1.22.53",
+      "version": "1.22.54",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-docs"
       },
       "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Successor to cofoundy-toolkit:publish.",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "author": {
         "name": "Cofoundy SAC"
       },
