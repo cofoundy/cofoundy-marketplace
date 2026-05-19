@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
-      "version": "1.22.52",
+      "version": "1.22.53",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation",
-      "version": "0.9.28",
+      "version": "0.9.30",
       "author": {
         "name": "Cofoundy SAC"
       },
