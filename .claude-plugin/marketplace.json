@@ -41,8 +41,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-docs"
       },
-      "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Successor to cofoundy-toolkit:publish.",
-      "version": "0.1.3",
+      "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Round-trip pull supported. Successor to cofoundy-toolkit:publish.",
+      "version": "0.1.4",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation",
-      "version": "0.9.30",
+      "version": "0.9.31",
       "author": {
         "name": "Cofoundy SAC"
       },
