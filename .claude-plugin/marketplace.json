@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-docs"
       },
       "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Round-trip pull supported. Successor to cofoundy-toolkit:publish.",
-      "version": "0.1.5",
+      "version": "0.1.6",
       "author": {
         "name": "Cofoundy SAC"
       },
