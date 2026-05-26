@@ -7,9 +7,17 @@ Catálogo de plugins de Cofoundy para Claude Code. Este es el **punto de entrada
 ## Onboarding (nuevo miembro de Cofoundy)
 
 **Pre-requisitos:**
-- Acceso al GitHub org `cofoundy/` (te lo provisiona un Partner cuando entras al equipo).
-- `gh auth login` ejecutado en tu laptop con la cuenta GitHub que tiene acceso a la org.
+- Acceso al GitHub org `cofoundy/` (te lo provisiona un Partner cuando entras al equipo — acepta los invites que te llegan al correo).
+- GitHub CLI instalado (`gh --version` debe funcionar).
+- **GitHub auth via SSH** (no HTTPS — los repos privados clonan más limpio así):
+  ```bash
+  mkdir -p ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+  gh auth login -p ssh -h github.com -w
+  ssh -T git@github.com   # debe responder "Hi <user>! You've successfully authenticated"
+  ```
 - Claude Code instalado.
+
+Si la guía paso-a-paso amigable (con expected output de cada comando) te ayuda más: **[Guía de setup para contractors](https://docs.cofoundy.dev/team/cofoundy/contractor-setup)**.
 
 **Pasos:**
 
@@ -23,7 +31,7 @@ Catálogo de plugins de Cofoundy para Claude Code. Este es el **punto de entrada
 5. Vuelve a `/plugins` → **Tab dos veces** hasta **Marketplaces** → entra al marketplace **cofoundy**.
 6. Selecciona `cofoundy-toolkit` y elige **Install for you** (primera opción). Es el plugin base que todos en Cofoundy necesitan.
 7. Regresa al marketplace **cofoundy** → **Enable auto-update** para recibir updates automáticamente.
-8. **Reinicia Claude Code** — cierra y vuelve a abrir para que el plugin se cargue.
+8. Escribe `/reload-plugins` para cargar el plugin recién instalado sin cerrar la sesión.
 9. Escribe `/workspace-setup` — clona los repos del workspace según tu rol y provisiona las API keys.
 
 Las API keys se provisionan automáticamente al iniciar sesión (requiere acceso a la org y al provisioner vault de Vaultwarden).
