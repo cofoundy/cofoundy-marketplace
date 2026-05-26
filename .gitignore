@@ -1,0 +1,3 @@
+# Stray nested clone of this repo (artifact from /workspace-setup runs).
+# We are the marketplace catalog; we should not contain ourselves.
+/cofoundy-marketplace/
