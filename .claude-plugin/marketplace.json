@@ -55,7 +55,20 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation, AWS SSO lifecycle",
-      "version": "0.9.44",
+      "version": "0.9.45",
+      "author": {
+        "name": "Cofoundy SAC"
+      },
+      "homepage": "https://cofoundy.dev"
+    },
+    {
+      "name": "cofoundy-finance",
+      "source": {
+        "source": "github",
+        "repo": "cofoundy/cofoundy-finance"
+      },
+      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) — least-privilege split from cofoundy-founders.",
+      "version": "0.1.0",
       "author": {
         "name": "Cofoundy SAC"
       },
