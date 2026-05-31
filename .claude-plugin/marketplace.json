@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation, AWS SSO lifecycle",
-      "version": "0.9.45",
+      "version": "0.9.46",
       "author": {
         "name": "Cofoundy SAC"
       },
