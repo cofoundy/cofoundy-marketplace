@@ -67,7 +67,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-finance"
       },
-      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) — least-privilege split from cofoundy-founders.",
+      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) \u2014 least-privilege split from cofoundy-founders.",
       "version": "0.1.0",
       "author": {
         "name": "Cofoundy SAC"
@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer: automatic prompt capture, pattern extraction, and system design methodology",
-      "version": "0.3.13",
+      "version": "0.3.15",
       "author": {
         "name": "Cofoundy SAC"
       },
