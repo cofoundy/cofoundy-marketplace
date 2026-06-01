@@ -78,6 +78,8 @@ Archivos de marketplace:
 
 Mientras no exista un generador común, cualquier cambio de catálogo debe revisar ambos contratos para evitar drift.
 
+Estrategia portable: [docs/portable-marketplace-strategy.md](docs/portable-marketplace-strategy.md).
+
 `metadata.version` aquí es la versión del catálogo (no de un plugin individual). Bump menor cuando cambia un puntero (ej. nueva versión de un plugin), mayor en cambios estructurales (agregar/remover un plugin, cambio de schema).
 
 **Workflow para agregar un plugin nuevo a la org:**
