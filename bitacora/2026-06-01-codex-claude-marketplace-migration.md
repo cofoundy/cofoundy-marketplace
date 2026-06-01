@@ -69,6 +69,43 @@ Los 8 plugins quedaron instalados y enabled en Codex bajo `cofoundy`:
 - `cofoundy-pms`
 - `cofoundy-orchestrator`
 
+## Update — Portabilidad Remota
+
+Se cerró el primer audit de portabilidad del marketplace remoto y quedó
+documentado en `docs/portable-marketplace-strategy.md`.
+
+Hallazgo principal:
+
+- Codex `0.135.0` sí acepta marketplaces remotos por Git (`owner/repo`, HTTPS,
+  SSH y sparse checkout).
+- Eso no implica que acepte `source` remoto por plugin dentro de
+  `.agents/plugins/marketplace.json`.
+- Se probó un marketplace temporal con una entry `source: github` apuntando a
+  `cofoundy/cofoundy-toolkit`; Codex no listó plugins.
+- Cambiar esa misma entry a `source: local` con `path:
+  ./plugins/cofoundy-toolkit` hizo que Codex sí listara el plugin.
+
+Decisión:
+
+- Claude Code mantiene entries remotas por repo en
+  `.claude-plugin/marketplace.json`.
+- Codex mantiene entries locales en `.agents/plugins/marketplace.json`.
+- Para instalación remota portable en Codex, el marketplace debe materializar
+  `plugins/<name>` dentro del checkout del marketplace como snapshots generados
+  o artefacto de release.
+- Los symlinks quedan como ergonomía de desarrollo local, no como estrategia de
+  distribución remota.
+- Submodules quedan descartados como path primario hasta probar si Codex
+  inicializa submodules recursivamente al instalar/actualizar marketplaces Git.
+
+Commit publicado:
+
+```text
+7d1be5a docs: define portable marketplace strategy
+```
+
+El README ahora linkea la estrategia portable desde la sección de mantenimiento.
+
 ## Diseño Propuesto
 
 El repo `cofoundy-marketplace` debe ser el punto de entrada compartido.
