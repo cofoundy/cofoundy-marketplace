@@ -1,6 +1,14 @@
 # cofoundy-marketplace
 
-Catálogo de plugins de Cofoundy para Claude Code. Este es el **punto de entrada** al ecosistema interno: instala el marketplace una vez, después instalas los plugins que tu rol necesite.
+Catálogo de plugins de Cofoundy para agentic harnesses. Este es el **punto de entrada** al ecosistema interno: instala el marketplace una vez, después instalas los plugins que tu rol necesite.
+
+Hoy soporta Claude Code y está en migración activa para Codex. La meta del repo no es quedar amarrado a un runtime específico, sino servir como SSOT portable para cualquier harness agentic que Cofoundy adopte: Claude Code, Codex, Antigravity u otros.
+
+Contratos actuales:
+
+- Claude Code: `.claude-plugin/marketplace.json`
+- Codex: `.agents/plugins/marketplace.json`
+- Plugins fuente: repos `cofoundy/cofoundy-*` con manifests por runtime cuando haga falta (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`)
 
 ---
 
@@ -61,13 +69,21 @@ Antes el catálogo vivía dentro de `cofoundy-toolkit`. Cada vez que alguien agr
 
 ## Mantenimiento (founders)
 
-Cuando agregas/quitas un plugin o bumpeas versión: editar `marketplace.json` aquí + commit + push. Los repos individuales de cada plugin se mantienen aparte.
+Cuando agregas/quitas un plugin o bumpeas versión: actualizar los manifests de marketplace que apliquen + commit + push. Los repos individuales de cada plugin se mantienen aparte.
+
+Archivos de marketplace:
+
+- Claude Code: `.claude-plugin/marketplace.json`
+- Codex: `.agents/plugins/marketplace.json`
+
+Mientras no exista un generador común, cualquier cambio de catálogo debe revisar ambos contratos para evitar drift.
 
 `metadata.version` aquí es la versión del catálogo (no de un plugin individual). Bump menor cuando cambia un puntero (ej. nueva versión de un plugin), mayor en cambios estructurales (agregar/remover un plugin, cambio de schema).
 
 **Workflow para agregar un plugin nuevo a la org:**
 1. Crear repo del plugin en `cofoundy/` (ej. `cofoundy-newplugin`).
-2. Agregar entry en `marketplace.json` aquí con su `name`, `source`, `version`, `description`, `author`, `homepage`.
-3. Bump `metadata.version` (menor).
-4. Commit + push.
-5. Equipo recibe update automáticamente si tiene auto-update activado en el marketplace.
+2. Agregar el manifest del runtime dentro del plugin (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, etc.).
+3. Agregar entry en los marketplace manifests correspondientes.
+4. Bump de versión/cachebuster según la política del runtime.
+5. Commit + push.
+6. Equipo recibe update automáticamente si tiene auto-update activado en el marketplace/runtime.

@@ -1,0 +1,104 @@
+{
+  "name": "cofoundy",
+  "interface": {
+    "displayName": "Cofoundy"
+  },
+  "plugins": [
+    {
+      "name": "cofoundy-toolkit",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-toolkit"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "cofoundy-business",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-business"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Business"
+    },
+    {
+      "name": "cofoundy-docs",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-docs"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Documentation"
+    },
+    {
+      "name": "cofoundy-founders",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-founders"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Operations"
+    },
+    {
+      "name": "cofoundy-finance",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-finance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance"
+    },
+    {
+      "name": "cofoundy-meta",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-meta"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "cofoundy-pms",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-pms"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Project Management"
+    },
+    {
+      "name": "cofoundy-orchestrator",
+      "source": {
+        "source": "local",
+        "path": "./plugins/cofoundy-orchestrator"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Project Management"
+    }
+  ]
+}
