@@ -107,7 +107,7 @@
         "repo": "cofoundy/cofoundy-orchestrator"
       },
       "description": "AI-native project management substrate for autonomous multi-agent work. Single entry point `/cto` drives a 12-phase loop with 3 AGENT-resolved gates via the `ceo-agent` autonomous role; escalates to human only on threshold breach. Composes 20 skills + 2 new agents (ceo-agent, research-agent). Targets 3+ hours unattended operation. Built on cofoundy-toolkit:sprint + Superpowers.",
-      "version": "0.1.5",
+      "version": "0.1.6",
       "author": {
         "name": "Cofoundy SAC"
       },
