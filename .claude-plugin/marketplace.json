@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
-      "version": "1.22.94",
+      "version": "1.22.99",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -41,7 +41,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-docs"
       },
-      "description": "DocsAI publishing \u2014 vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Round-trip pull supported. Successor to cofoundy-toolkit:publish.",
+      "description": "DocsAI publishing — vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Round-trip pull supported. Successor to cofoundy-toolkit:publish.",
       "version": "0.1.9",
       "author": {
         "name": "Cofoundy SAC"
@@ -67,7 +67,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-finance"
       },
-      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) \u2014 least-privilege split from cofoundy-founders.",
+      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) — least-privilege split from cofoundy-founders.",
       "version": "0.1.0",
       "author": {
         "name": "Cofoundy SAC"
@@ -93,7 +93,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-pms"
       },
-      "description": "PM operations layer \u2014 sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
+      "description": "PM operations layer — sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
       "version": "0.1.1",
       "author": {
         "name": "Cofoundy SAC"
