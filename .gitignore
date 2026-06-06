@@ -1,3 +1,11 @@
 # Stray nested clone of this repo (artifact from /workspace-setup runs).
 # We are the marketplace catalog; we should not contain ourselves.
 /cofoundy-marketplace/
+
+# Local Agent session constitutions and editor configuration
+/AGENTS.md
+/.antigravitycli/
+
+# Local development symlinks under the agents plugin directory
+# (Retain marketplace.json itself which is the Codex manifest)
+/.agents/plugins/cofoundy-*/

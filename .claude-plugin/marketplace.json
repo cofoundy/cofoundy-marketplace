@@ -15,7 +15,7 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-toolkit"
       },
-      "description": "Internal toolkit: image gen, landing page factory, dev workflow commands",
+      "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
       "version": "1.22.99",
       "author": {
         "name": "Cofoundy SAC"
@@ -29,7 +29,7 @@
         "repo": "cofoundy/cofoundy-business"
       },
       "description": "Business tools: Hormozi library, website diagnosis, AI visibility audits, content creation",
-      "version": "0.4.6",
+      "version": "0.4.7",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -41,8 +41,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-docs"
       },
-      "description": "DocsAI publishing — vault-aware (recursive folders, per-folder READMEs, soft-warning broken links, sidebar nav). Round-trip pull supported. Successor to cofoundy-toolkit:publish.",
-      "version": "0.1.9",
+      "description": "DocsAI publishing: vault-aware docs publication, soft-warning links, and sidebar navigation.",
+      "version": "0.1.10",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -54,8 +54,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-founders"
       },
-      "description": "Founder-only tools: billing automation, domain management, vault admin, key rotation, AWS SSO lifecycle",
-      "version": "0.9.52",
+      "description": "Founder-only operations for Cofoundy.",
+      "version": "0.9.51",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -67,8 +67,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-finance"
       },
-      "description": "Finance & accounting: contabilidad (Alegra invoicing/boletas, SUNAT 621 prep, BCP reconciliation, monthly close). For socios + external accountant (NDA) — least-privilege split from cofoundy-founders.",
-      "version": "0.1.0",
+      "description": "Finance and accounting operations for Cofoundy SAC.",
+      "version": "0.1.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -80,8 +80,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-meta"
       },
-      "description": "Metacognition layer: automatic prompt capture, pattern extraction, and system design methodology",
-      "version": "0.3.16",
+      "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
+      "version": "0.3.18",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -93,8 +93,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-pms"
       },
-      "description": "PM operations layer — sprints, dailies, debriefs, retros, project close (PM side). Audience: T3-PMgineer + Partner.",
-      "version": "0.1.1",
+      "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
+      "version": "0.1.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -106,8 +106,8 @@
         "source": "github",
         "repo": "cofoundy/cofoundy-orchestrator"
       },
-      "description": "AI-native project management substrate for autonomous multi-agent work. Single entry point `/cto` drives a 12-phase loop with 3 AGENT-resolved gates via the `ceo-agent` autonomous role; escalates to human only on threshold breach. Composes 20 skills + 2 new agents (ceo-agent, research-agent). Targets 3+ hours unattended operation. Built on cofoundy-toolkit:sprint + Superpowers.",
-      "version": "0.1.8",
+      "description": "AI-native project management substrate for autonomous multi-agent work.",
+      "version": "0.2.1",
       "author": {
         "name": "Cofoundy SAC"
       },

@@ -69,14 +69,35 @@ Antes el catálogo vivía dentro de `cofoundy-toolkit`. Cada vez que alguien agr
 
 ## Mantenimiento (founders)
 
-Cuando agregas/quitas un plugin o bumpeas versión: actualizar los manifests de marketplace que apliquen + commit + push. Los repos individuales de cada plugin se mantienen aparte.
+Cuando editas, creas o borras una skill/command/agent/hook en un plugin Cofoundy, el agente debe correr:
+
+```bash
+bash ~/cofoundy/plugins/cofoundy-marketplace/scripts/update-plugin.sh <plugin-name>
+```
+
+Ese comando bumpea `plugin.meta.json`, regenera manifests, valida drift, refresca cache de Claude Code via `sync-plugin.sh` y refresca cache de Codex via `codex plugin add <plugin>@cofoundy`. Para una nueva capability pública usa `--bump minor`; para metadata-only sin cambio funcional usa `--bump none`.
+
+Los manifests runtime son generados; no los edites a mano salvo que estés cambiando el generador.
 
 Archivos de marketplace:
 
 - Claude Code: `.claude-plugin/marketplace.json`
 - Codex: `.agents/plugins/marketplace.json`
 
-Mientras no exista un generador común, cualquier cambio de catálogo debe revisar ambos contratos para evitar drift.
+Para evitar drift entre runtimes si solo cambias metadata/generador:
+
+```bash
+python3 scripts/plugin-manifests.py generate
+python3 scripts/plugin-manifests.py check
+```
+
+El source de metadata por plugin vive en `~/cofoundy/plugins/<plugin>/plugin.meta.json`. El generador actualiza:
+
+- `<plugin>/.claude-plugin/plugin.json`
+- `<plugin>/.codex-plugin/plugin.json`
+- `.claude-plugin/marketplace.json`
+
+El marketplace Codex local mantiene entradas path-only en `.agents/plugins/marketplace.json`; las versiones las toma de cada `.codex-plugin/plugin.json`.
 
 Estrategia portable: [docs/portable-marketplace-strategy.md](docs/portable-marketplace-strategy.md).
 
@@ -84,8 +105,10 @@ Estrategia portable: [docs/portable-marketplace-strategy.md](docs/portable-marke
 
 **Workflow para agregar un plugin nuevo a la org:**
 1. Crear repo del plugin en `cofoundy/` (ej. `cofoundy-newplugin`).
-2. Agregar el manifest del runtime dentro del plugin (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, etc.).
+2. Agregar manifests mínimos del runtime si el repo aún no los tiene (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, etc.).
 3. Agregar entry en los marketplace manifests correspondientes.
-4. Bump de versión/cachebuster según la política del runtime.
-5. Commit + push.
-6. Equipo recibe update automáticamente si tiene auto-update activado en el marketplace/runtime.
+4. Crear `plugin.meta.json` o correr `python3 scripts/plugin-manifests.py init-meta <plugin>`.
+5. Correr `bash scripts/update-plugin.sh <plugin> --bump minor`.
+6. Revisar diff.
+7. Commit + push.
+8. Equipo recibe update automáticamente si tiene auto-update activado en el marketplace/runtime.
