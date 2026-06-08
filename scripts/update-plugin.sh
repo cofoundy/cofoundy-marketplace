@@ -11,6 +11,12 @@ Run this after editing, creating, or deleting a Cofoundy plugin skill/command/ag
 
 It updates plugin.meta.json, regenerates runtime manifests, validates drift, refreshes
 the Claude Code cache, and refreshes the Codex plugin cache when the CLI is available.
+
+CAVEAT: marketplace.json is regenerated from ALL local plugin.meta.json files. If any
+plugin repo's local checkout is stale (behind its remote), this SILENTLY DOWNGRADES that
+plugin's version in the manifest. Always `git pull` every plugin repo before regenerating,
+or the manifest will regress entries you didn't touch. (Bit us 2026-06-08: founders
+0.9.52 → 0.9.51.)
 USAGE
 }
 
