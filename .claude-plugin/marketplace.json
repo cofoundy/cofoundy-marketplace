@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "Cofoundy internal plugins",
-    "version": "2.0.0"
+    "version": "2.1.0"
   },
   "plugins": [
     {
@@ -29,7 +29,7 @@
         "repo": "cofoundy/cofoundy-business"
       },
       "description": "Business tools: Hormozi library, website diagnosis, AI visibility audits, content creation",
-      "version": "0.4.7",
+      "version": "0.4.8",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -94,7 +94,7 @@
         "repo": "cofoundy/cofoundy-pms"
       },
       "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "author": {
         "name": "Cofoundy SAC"
       },
