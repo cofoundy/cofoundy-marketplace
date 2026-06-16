@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.24.8",
+      "version": "1.25.0",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.3.20",
+      "version": "0.4.0",
       "author": {
         "name": "Cofoundy SAC"
       },
