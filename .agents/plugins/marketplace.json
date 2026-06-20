@@ -29,18 +29,6 @@
       "category": "Business"
     },
     {
-      "name": "cofoundy-docs",
-      "source": {
-        "source": "local",
-        "path": "./plugins/cofoundy-docs"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Documentation"
-    },
-    {
       "name": "cofoundy-founders",
       "source": {
         "source": "local",

@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.25.3",
+      "version": "1.26.0",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -34,19 +34,6 @@
         "name": "Cofoundy SAC"
       },
       "homepage": "https://cofoundy.dev"
-    },
-    {
-      "name": "cofoundy-docs",
-      "source": {
-        "source": "github",
-        "repo": "cofoundy/cofoundy-docs"
-      },
-      "description": "DocsAI publishing: vault-aware docs publication, soft-warning links, and sidebar navigation.",
-      "version": "0.1.10",
-      "author": {
-        "name": "Cofoundy SAC"
-      },
-      "homepage": "https://docs.cofoundy.dev"
     },
     {
       "name": "cofoundy-founders",
@@ -81,7 +68,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.4.0",
+      "version": "0.4.2",
       "author": {
         "name": "Cofoundy SAC"
       },
