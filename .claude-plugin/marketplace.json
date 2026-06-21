@@ -68,7 +68,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.4.2",
+      "version": "0.4.3",
       "author": {
         "name": "Cofoundy SAC"
       },
