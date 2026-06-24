@@ -175,4 +175,4 @@ done
 
 echo
 echo "Done. Commit the source plugin repo(s) and cofoundy-marketplace together."
-echo "Claude Code sessions need /reload-plugins to activate the refreshed cache."
+echo "TELL THE USER to run /reload-plugins in Claude Code to load the new version — the agent can't reload plugins itself (each session uses the cache snapshot taken at startup)."
