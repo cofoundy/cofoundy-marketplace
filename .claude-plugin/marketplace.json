@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-pms"
       },
       "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
-      "version": "0.1.2",
+      "version": "0.2.1",
       "author": {
         "name": "Cofoundy SAC"
       },
