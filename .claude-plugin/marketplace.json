@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.13.1",
+      "version": "0.13.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-finance"
       },
       "description": "Finance and accounting operations for Cofoundy SAC.",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -68,7 +68,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.4.4",
+      "version": "0.4.5",
       "author": {
         "name": "Cofoundy SAC"
       },
