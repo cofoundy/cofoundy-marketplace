@@ -29,7 +29,7 @@
         "repo": "cofoundy/cofoundy-business"
       },
       "description": "Business tools: Hormozi library, website diagnosis, AI visibility audits, content creation",
-      "version": "0.4.8",
+      "version": "0.4.7",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.13.3",
+      "version": "0.13.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-finance"
       },
       "description": "Finance and accounting operations for Cofoundy SAC.",
-      "version": "0.6.3",
+      "version": "0.6.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -68,7 +68,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.4.6",
+      "version": "0.4.5",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -94,7 +94,7 @@
         "repo": "cofoundy/cofoundy-orchestrator"
       },
       "description": "AI-native project management substrate for autonomous multi-agent work.",
-      "version": "0.5.2",
+      "version": "0.5.3",
       "author": {
         "name": "Cofoundy SAC"
       },
