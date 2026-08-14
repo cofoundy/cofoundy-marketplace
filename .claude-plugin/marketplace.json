@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.15.4",
+      "version": "0.15.5",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-pms"
       },
       "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "author": {
         "name": "Cofoundy SAC"
       },
