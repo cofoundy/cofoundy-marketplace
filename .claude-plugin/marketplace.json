@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.15.6",
+      "version": "0.14.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-finance"
       },
       "description": "Finance and accounting operations for Cofoundy SAC.",
-      "version": "0.12.0",
+      "version": "0.10.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-pms"
       },
       "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
-      "version": "0.2.2",
+      "version": "0.2.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -94,7 +94,7 @@
         "repo": "cofoundy/cofoundy-orchestrator"
       },
       "description": "AI-native project management substrate for autonomous multi-agent work.",
-      "version": "0.15.1",
+      "version": "0.16.0",
       "author": {
         "name": "Cofoundy SAC"
       },
