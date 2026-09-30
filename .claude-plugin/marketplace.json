@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.76.0",
+      "version": "1.76.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.19.5",
+      "version": "0.19.3",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-finance"
       },
       "description": "Finance and accounting operations for Cofoundy SAC.",
-      "version": "0.12.2",
+      "version": "0.10.2",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -68,7 +68,7 @@
         "repo": "cofoundy/cofoundy-meta"
       },
       "description": "Metacognition layer for prompt capture, pattern extraction, and system design methodology.",
-      "version": "0.4.9",
+      "version": "0.4.6",
       "author": {
         "name": "Cofoundy SAC"
       },
