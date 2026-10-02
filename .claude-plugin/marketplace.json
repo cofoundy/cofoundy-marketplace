@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.81.0",
+      "version": "1.81.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.19.7",
+      "version": "0.19.6",
       "author": {
         "name": "Cofoundy SAC"
       },
