@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.81.0",
+      "version": "1.81.1",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -29,7 +29,7 @@
         "repo": "cofoundy/cofoundy-business"
       },
       "description": "Business tools: Hormozi library, website diagnosis, AI visibility audits, content creation",
-      "version": "0.13.2",
+      "version": "0.13.3",
       "author": {
         "name": "Cofoundy SAC"
       },
