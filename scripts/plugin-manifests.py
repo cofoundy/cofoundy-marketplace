@@ -9,6 +9,7 @@ Generated outputs:
 
     <plugin>/.claude-plugin/plugin.json
     <plugin>/.codex-plugin/plugin.json
+    <plugin>/.claude-plugin/marketplace.json   (version fields only, if the repo carries one)
     cofoundy-marketplace/.claude-plugin/marketplace.json
 
 The Codex marketplace intentionally stays path-only for local development.
@@ -19,6 +20,7 @@ from __future__ import annotations
 import argparse
 import copy
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -174,12 +176,29 @@ def update_claude_marketplace(metas: dict[str, dict[str, Any]], *, check: bool) 
         meta = metas.get(entry.get("name"))
         if not meta:
             continue
+        version = meta["version"]
+        published = entry.get("version")
+        # Never downgrade. The catalog is rebuilt from EVERY local checkout, so one stale
+        # checkout (behind its remote) used to silently roll that plugin back — founders
+        # 0.9.52→0.9.51 (2026-06-08), 0.21.0→0.20.2 twice (2026-10-09).
+        if (
+            isinstance(published, str)
+            and semver_key(published) > semver_key(version)
+            and not os.environ.get("PLUGIN_MANIFESTS_ALLOW_DOWNGRADE")
+        ):
+            print(
+                f"STALE {meta['name']}: local checkout says {version}, catalog has {published} "
+                f"— kept {published}. Pull that repo (git -C <plugin> pull --ff-only); "
+                "PLUGIN_MANIFESTS_ALLOW_DOWNGRADE=1 to roll back on purpose.",
+                file=sys.stderr,
+            )
+            version = published
         source = entry.get("source", {})
         new_entry = {
             "name": meta["name"],
             "source": source,
             "description": meta["description"],
-            "version": meta["version"],
+            "version": version,
             "author": {"name": meta.get("author", {}).get("name", "Cofoundy SAC")},
             "homepage": meta.get("homepage", "https://cofoundy.dev"),
         }
@@ -190,6 +209,31 @@ def update_claude_marketplace(metas: dict[str, dict[str, Any]], *, check: bool) 
     if changed:
         return write_json(CLAUDE_MARKETPLACE, marketplace, check=check)
     return False
+
+
+def sync_repo_marketplace(plugin_dir: Path, meta: dict[str, Any], *, check: bool) -> bool:
+    """Keep the version fields of a repo's OWN marketplace.json in step with its meta.
+
+    Pre-split repos (2026-05-12) and the OSS ones (licita, basalt-plugin, brand-skills) still
+    carry .claude-plugin/marketplace.json. enforce-version-bump requires it staged with every
+    commit, but nothing regenerated it: agents hand-bumped it or the guard blocked them
+    (business sat at 0.4.5 while it shipped 0.15.x). Only version fields are touched.
+    """
+    path = plugin_dir / ".claude-plugin" / "marketplace.json"
+    if not path.exists():
+        return False
+    data = read_json(path)
+    version = meta["version"]
+    entries = data.get("plugins", [])
+    for entry in entries:
+        if entry.get("name") == meta["name"] and "version" in entry:
+            entry["version"] = version
+    if [e.get("name") for e in entries] == [meta["name"]]:
+        if "version" in data:
+            data["version"] = version
+        if isinstance(data.get("metadata"), dict) and "version" in data["metadata"]:
+            data["metadata"]["version"] = version
+    return write_json(path, data, check=check)
 
 
 def load_metas() -> dict[str, dict[str, Any]]:
@@ -223,6 +267,7 @@ def generate(*, check: bool) -> int:
             codex_manifest(meta),
             check=check,
         )
+        drift |= sync_repo_marketplace(plugin_dir, meta, check=check)
     drift |= update_claude_marketplace(metas, check=check)
     return 1 if drift and check else 0
 
