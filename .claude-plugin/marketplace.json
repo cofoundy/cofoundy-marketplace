@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.122.3",
+      "version": "1.123.0",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -94,7 +94,7 @@
         "repo": "cofoundy/cofoundy-orchestrator"
       },
       "description": "AI-native project management substrate for autonomous multi-agent work.",
-      "version": "0.35.7",
+      "version": "0.36.0",
       "author": {
         "name": "Cofoundy SAC"
       },
