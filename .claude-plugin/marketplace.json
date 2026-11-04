@@ -16,7 +16,7 @@
         "repo": "cofoundy/cofoundy-toolkit"
       },
       "description": "Internal toolkit for image generation, landing page factory, and development workflow commands.",
-      "version": "1.134.13",
+      "version": "1.135.0",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -81,7 +81,7 @@
         "repo": "cofoundy/cofoundy-pms"
       },
       "description": "PM operations layer for sprints, dailies, debriefs, retros, and project close.",
-      "version": "0.2.5",
+      "version": "0.3.0",
       "author": {
         "name": "Cofoundy SAC"
       },
