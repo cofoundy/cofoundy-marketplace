@@ -42,7 +42,7 @@
         "repo": "cofoundy/cofoundy-founders"
       },
       "description": "Founder-only operations for Cofoundy.",
-      "version": "0.32.1",
+      "version": "0.33.0",
       "author": {
         "name": "Cofoundy SAC"
       },
@@ -55,7 +55,7 @@
         "repo": "cofoundy/cofoundy-finance"
       },
       "description": "Finance and accounting operations for Cofoundy SAC.",
-      "version": "0.16.3",
+      "version": "0.17.0",
       "author": {
         "name": "Cofoundy SAC"
       },
