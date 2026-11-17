@@ -59,7 +59,7 @@ setup() {
   T="$(realpath "$(mktemp -d)")"
   mkdir -p "$T/mkt/scripts" "$T/mkt/.claude-plugin" "$T/mkt/plugins/cofoundy-toolkit/scripts" \
            "$T/home/.claude/plugins" "$T/home/cofoundy/plugins"
-  cp "$HERE/update-plugin.sh" "$HERE/plugin-manifests.py" "$T/mkt/scripts/"
+  cp "$HERE/update-plugin.sh" "$HERE/plugin-manifests.py" "$HERE/cache-drift.py" "$T/mkt/scripts/"
   cp "$SYNC_SRC" "$T/mkt/plugins/cofoundy-toolkit/scripts/sync-plugin.sh"  # not a plugin: no manifest
   new_plugin "$T" alpha 0.1.0
   new_plugin "$T" beta 0.2.0

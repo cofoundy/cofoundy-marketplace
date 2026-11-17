@@ -397,6 +397,9 @@ for plugin in "${PLUGINS[@]}"; do
   refresh_codex "$plugin"
 done
 
+# Report what the cache still serves that a source dropped (#4). Read-only; never blocks.
+python3 -B "${MARKETPLACE_DIR}/scripts/cache-drift.py" --hook --claude-home "$CLAUDE_HOME" || true
+
 echo
 echo "Done. Commit the source plugin repo(s) and cofoundy-marketplace together."
 echo "TELL THE USER to run /reload-plugins in Claude Code to load the new version — the agent can't reload plugins itself (each session uses the cache snapshot taken at startup)."
