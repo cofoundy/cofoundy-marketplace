@@ -4,8 +4,8 @@ set -euo pipefail
 usage() {
   cat <<'USAGE'
 Usage:
-  scripts/update-plugin.sh <plugin-name> [--bump patch|minor|major|none]
-  scripts/update-plugin.sh --all [--bump patch|minor|major|none]
+  scripts/update-plugin.sh <plugin-name> [--bump patch|minor|major|none] [--force]
+  scripts/update-plugin.sh --all [--bump patch|minor|major|none] [--force]
 
 Run this after editing, creating, or deleting a Cofoundy plugin skill/command/agent/hook.
 
@@ -22,6 +22,12 @@ PREFLIGHT: the bump target is checked against the Claude cache BEFORE anything i
 mutated. A bump whose target version is already published aborts here with exit 3 —
 see the comment on preflight_cache_collision().
 
+PREFLIGHT (#2): `generate` rewrites EVERY plugin's manifests from its local checkout, so
+before anything is mutated each OTHER plugin's checkout must be on its default branch, not
+behind origin (after a fetch) and clean in its version files; a target plugin must not be
+behind its upstream. Any failure aborts with exit 4 naming the repo. `--force` prints the
+findings and proceeds.
+
 Env overrides (optional, for testing against a throwaway cache):
   SYNC_PLUGIN_CLAUDE_HOME   default $HOME/.claude
   SYNC_PLUGIN_CACHE_ROOT    default <claude-home>/plugins/cache/cofoundy
@@ -37,6 +43,7 @@ CLAUDE_HOME="${SYNC_PLUGIN_CLAUDE_HOME:-$HOME/.claude}"
 CACHE_ROOT="${SYNC_PLUGIN_CACHE_ROOT:-$CLAUDE_HOME/plugins/cache/cofoundy}"
 BUMP="patch"
 ALL=0
+FORCE=0
 PLUGINS=()
 
 while [ "$#" -gt 0 ]; do
@@ -47,6 +54,10 @@ while [ "$#" -gt 0 ]; do
       ;;
     --all)
       ALL=1
+      shift
+      ;;
+    --force)
+      FORCE=1
       shift
       ;;
     --bump)
@@ -290,6 +301,78 @@ refresh_codex() {
     return 0
   fi
 }
+
+# Checkout preflight (#2). The usage CAVEAT («git pull every plugin repo before regenerating»)
+# was prose with no mechanism: a stale, dirty or feature-branch checkout of ANY plugin became
+# released metadata on the next `generate` (founders 0.9.52 → 0.9.51, 2026-06-08). Prints one
+# line per problem; exit 1 if any.
+VERSION_FILES=(plugin.meta.json .claude-plugin/plugin.json .codex-plugin/plugin.json .claude-plugin/marketplace.json)
+checkout_problems() {
+  local name="$1" dir="$2" is_target="$3"
+  if ! git -C "$dir" rev-parse --git-dir >/dev/null 2>&1; then
+    return 0  # not a git checkout: nothing to compare against
+  fi
+  local found=0 branch default behind dirty upstream
+  if ! git -C "$dir" fetch -q origin 2>/dev/null; then
+    echo "WARN $name: git fetch failed — comparing against the last known origin" >&2
+  fi
+  branch="$(git -C "$dir" symbolic-ref --short -q HEAD || echo DETACHED)"
+  default="$(git -C "$dir" symbolic-ref --short -q refs/remotes/origin/HEAD 2>/dev/null || true)"
+  default="${default#origin/}"
+  [ -n "$default" ] || default=main
+  if [ "$is_target" = 1 ]; then
+    upstream="$(git -C "$dir" rev-parse --abbrev-ref -q '@{u}' 2>/dev/null || true)"
+    if [ -n "$upstream" ]; then
+      behind="$(git -C "$dir" rev-list --count "HEAD..$upstream" 2>/dev/null || echo 0)"
+      if [ "$behind" -gt 0 ]; then
+        echo "  $name ($dir): $behind commit(s) behind $upstream — pull before bumping"; found=1
+      fi
+    fi
+    return "$found"
+  fi
+  if [ "$branch" != "$default" ]; then
+    echo "  $name ($dir): on branch '$branch', not '$default' — its meta would publish an unmerged version"; found=1
+  fi
+  if git -C "$dir" rev-parse -q --verify "origin/$default" >/dev/null; then
+    behind="$(git -C "$dir" rev-list --count "HEAD..origin/$default" 2>/dev/null || echo 0)"
+    if [ "$behind" -gt 0 ]; then
+      echo "  $name ($dir): $behind commit(s) behind origin/$default — git -C $dir pull --ff-only"; found=1
+    fi
+  fi
+  dirty="$(cd "$dir" && git status --porcelain -- "${VERSION_FILES[@]}" 2>/dev/null | awk '{print $NF}' | tr '\n' ' ')"
+  if [ -n "$dirty" ]; then
+    echo "  $name ($dir): uncommitted version files: $dirty"; found=1
+  fi
+  return "$found"
+}
+
+preflight_checkouts() {
+  local report="" line item name dir is_target t
+  while IFS= read -r item; do
+    [ -n "$item" ] || continue
+    name="$(basename "$item")"
+    dir="$(realpath "$item" 2>/dev/null)" || continue
+    [ -f "$dir/plugin.meta.json" ] || continue
+    is_target=0  # with --all every plugin publishes: all get the full check
+    if [ "$ALL" -eq 0 ]; then
+      for t in "${PLUGINS[@]}"; do [ "$t" = "$name" ] && is_target=1; done
+    fi
+    line="$(checkout_problems "$name" "$dir" "$is_target")" || true
+    [ -n "$line" ] && report+="$line"$'\n'
+  done < <(find "$PLUGINS_DIR" -mindepth 1 -maxdepth 1 \( -type d -o -type l \) | sort)
+  [ -z "$report" ] && return 0
+  if [ "$FORCE" = 1 ]; then
+    echo "WARN --force: regenerating despite these checkouts (each may write its local version):" >&2
+    printf '%s' "$report" >&2
+    return 0
+  fi
+  echo "ERROR preflight: these checkouts would turn local state into released metadata:" >&2
+  printf '%s' "$report" >&2
+  echo "  Fix them (pull / checkout the default branch / commit) or re-run with --force." >&2
+  return 1
+}
+
+preflight_checkouts || exit 4
 
 # Preflight ALL plugins before mutating ANY of them: with --all, one colliding
 # plugin must not leave the other twenty half-bumped.
