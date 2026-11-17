@@ -250,8 +250,14 @@ print(f"BUMP {path} {version} -> {data['version']}")
 PY
 }
 
+# Publish from the SAME tree that was just bumped. sync-plugin.sh reads its source from
+# $SYNC_PLUGIN_PLUGINS_ROOT/<name> (default ~/cofoundy/plugins/<name>), while the bump follows the
+# marketplace symlink (plugin_dir_for → realpath). With the symlink on a worktree, one run bumped
+# 0.7.0 in one tree and published 0.5.1 from another, and the summary reported 0.5.1 (#3). A
+# throwaway root holding <name> → plugin_dir makes sync read exactly the bumped tree.
 refresh_claude() {
   local plugin="$1"
+  local plugin_dir="$2"
   if [ ! -x "$SYNC_PLUGIN" ] && [ ! -f "$SYNC_PLUGIN" ]; then
     echo "SKIP Claude cache: sync-plugin.sh not found at $SYNC_PLUGIN"
     return 0
@@ -260,7 +266,17 @@ refresh_claude() {
     echo "SKIP Claude cache: $CLAUDE_HOME not found"
     return 0
   fi
-  bash "$SYNC_PLUGIN" "$plugin"
+  local default_dir root rc
+  default_dir="$(realpath "$HOME/cofoundy/plugins/$plugin" 2>/dev/null || true)"
+  if [ "$default_dir" != "$plugin_dir" ]; then
+    echo "SOURCE $plugin: publishing from $plugin_dir (not ~/cofoundy/plugins/$plugin)"
+  fi
+  root="$(mktemp -d)"
+  ln -s "$plugin_dir" "$root/$plugin"
+  rc=0
+  SYNC_PLUGIN_PLUGINS_ROOT="$root" bash "$SYNC_PLUGIN" "$plugin" || rc=$?
+  rm -rf "$root"
+  return "$rc"
 }
 
 refresh_codex() {
@@ -294,7 +310,7 @@ python3 "$MANIFESTS" generate
 python3 "$MANIFESTS" check
 
 for plugin in "${PLUGINS[@]}"; do
-  refresh_claude "$plugin"
+  refresh_claude "$plugin" "$(plugin_dir_for "$plugin")"
   refresh_codex "$plugin"
 done
 
