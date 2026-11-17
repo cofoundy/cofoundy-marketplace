@@ -257,6 +257,21 @@ def generate(*, check: bool) -> int:
             drift = True
             continue
         meta = read_json(meta_path)
+        # Never rewrite a plugin's own committed manifests DOWNWARD either: a meta behind its
+        # generated plugin.json (stale checkout, half-applied pull) left the regression sitting in
+        # the working tree, ready to be committed (cofoundy-marketplace#2, failure mode 2).
+        current = plugin_dir / ".claude-plugin" / "plugin.json"
+        if current.exists() and not os.environ.get("PLUGIN_MANIFESTS_ALLOW_DOWNGRADE"):
+            have = read_json(current).get("version")
+            if isinstance(have, str) and semver_key(have) > semver_key(meta["version"]):
+                print(
+                    f"STALE {meta['name']}: plugin.meta.json says {meta['version']} but "
+                    f"{current} has {have} — not rewritten. Pull that repo or fix its meta; "
+                    "PLUGIN_MANIFESTS_ALLOW_DOWNGRADE=1 to roll back on purpose.",
+                    file=sys.stderr,
+                )
+                drift |= check
+                continue
         drift |= write_json(
             plugin_dir / ".claude-plugin" / "plugin.json",
             claude_manifest(meta),
